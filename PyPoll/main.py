@@ -1,6 +1,6 @@
 import os 
 import csv
-from collections import Counter
+from collections import Counter #leveraging counter counter/collections to compute # of repeats
 
 poll_csv = os.path.join("..", "PyPoll", "election_data.csv")
 
@@ -18,7 +18,7 @@ with open(poll_csv, newline="") as csvfile:
         voter.append(row[0])
         county.append(row[1])
         candidate.append(row[2])
-        
+#doing calculations       
 d = Counter(candidate)
 votes_count = len(voter)
 alpha = list(d.keys())
@@ -26,7 +26,7 @@ beta = list(d.values())
 top_count = max(beta)
 winner_index = beta.index(top_count)
 winner = alpha[winner_index]
-
+#printing on python
 print(f"")
 print(f"Election Results")
 print(f"-------------------------")
@@ -38,7 +38,7 @@ for i in range(len(alpha)):
 print(f"-------------------------")
 print(f"Winner: {(winner)}")
 print(f"-------------------------")
-
+#outputing file
 output_path = os.path.join("..", "PyPoll", "newexport.txt")
 
 with open(output_path, 'w', newline='') as datafile:
